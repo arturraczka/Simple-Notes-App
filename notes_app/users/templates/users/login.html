@@ -1,0 +1,12 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+
+    <h2>Hello stranger, please consider logging in.</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Login">
+    </form>
+
+{% endblock content %}

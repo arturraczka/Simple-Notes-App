@@ -1,0 +1,18 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+    <form action='{% url "note_list"%}'>
+        <input type="submit" value="Back" />
+    </form>
+    <h2>Single Note</h2>
+    <h2>{{ note.title }}</h2>
+    <p>{{ note.body }}<br>
+    {{ note.created }}</p>
+    <form action='{% url "note_update" note.pk %}'>
+        <input type="submit" value="Update" />
+    </form>
+    <form action='{% url "note_delete" note.pk %}'>
+        <input type="submit" value="Delete" />
+    </form>
+
+{% endblock content %}

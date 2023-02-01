@@ -1,0 +1,15 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+
+    <h2>Hello stranger, please create an account.</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Sign Up">
+    </form>
+    <div>
+        Already have an account? <a href="{% url 'login' %}">Sign In</a>
+    </div>
+
+{% endblock content %}
