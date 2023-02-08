@@ -5,6 +5,7 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.messages.views import SuccessMessageMixin
+from django.urls import reverse, reverse_lazy
 
 
 @method_decorator(login_required, name='dispatch')
@@ -45,7 +46,7 @@ class NoteCreateView(SuccessMessageMixin, CreateView):
 class NoteDeleteView(UserPassesTestMixin, SuccessMessageMixin, DeleteView):
     model = Note
     template_name = 'notes_engine/note_delete.html'
-    success_url = '/'
+    success_url = reverse_lazy('note_list')
     success_message = 'Note deleted!'
 
     def test_func(self):
